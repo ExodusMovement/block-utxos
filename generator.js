@@ -112,7 +112,11 @@ bar.curr = config.firstHeight
 /* run process */
 handleBlocks(db, config.firstHeight, config.lastHeight, bar, function (err) {
   if (err) throw err
+  console.log('Creating JSON database...')
   createJSON(db, function (err) {
     if (err) throw err
+    db.close(function (err) {
+      if (err) throw err
+    })
   })
 })
