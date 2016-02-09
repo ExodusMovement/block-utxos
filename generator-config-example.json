@@ -1,0 +1,10 @@
+{
+	"host": "localhost",
+	"port": "18332"	,
+	"user": "bitcoinrpc",
+	"pass": "bitcoinrpc",
+	"firstHeight": 0,
+	"lastHeight": 300000,
+	"leveldb": ":memory:",
+	"jsondb": "./utxos300k.json"
+}
