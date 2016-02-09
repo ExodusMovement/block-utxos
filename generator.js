@@ -4,7 +4,6 @@
 var fs = require('fs')
 var RPCClient = require('bitcoin').Client
 var bitcoinjs = require('bitcoinjs-lib')
-var memdown = require('memdown')
 var leveldown = require('leveldown')
 var levelup = require('levelup')
 var through2 = require('through2')
@@ -102,8 +101,7 @@ function createJSON (db, cb) {
 }
 
 /* open db */
-var engine = config.leveldb === ':memory:' ? memdown : leveldown
-var db = levelup(config.leveldb, { db: engine, valueEncoding: 'json' })
+var db = levelup(config.leveldb, { db: leveldown, valueEncoding: 'json' })
 
 /* create progress bar */
 var bar = new ProgressBar(':percent (:current/:total), :elapseds elapsed, eta :etas', {

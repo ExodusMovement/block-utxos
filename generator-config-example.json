@@ -5,6 +5,6 @@
 	"pass": "bitcoinrpc",
 	"firstHeight": 0,
 	"lastHeight": 300000,
-	"leveldb": ":memory:",
+	"leveldb": "./utxos300k",
 	"jsondb": "./utxos300k.json"
 }
