@@ -16,7 +16,6 @@
     "LICENSE",
     "README.md"
   ],
-  "main": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/ExodusMovement/block-utxos.git"
@@ -37,5 +36,6 @@
   },
   "devDependencies": {
     "standard": "^6.0.4"
-  }
+  },
+  "private": true
 }
