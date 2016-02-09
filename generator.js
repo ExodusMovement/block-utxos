@@ -30,7 +30,7 @@ function updateUTXOs (db, height, block, cb) {
   var batch = db.batch()
   block.transactions.forEach(function (tx, txIndex) {
     var inputs = txIndex > 0 ? tx.ins : tx.ins.slice(1)
-    tx.ins.forEach(function (txInput) {
+    inputs.forEach(function (txInput) {
       batch.del(txInput.hash.reverse().toString('hex') + ':' + txInput.index)
     })
     var txId = tx.getId()
@@ -107,9 +107,9 @@ var db = levelup(config.leveldb, { db: engine, valueEncoding: 'json' })
 
 /* create progress bar */
 var bar = new ProgressBar(':percent (:current/:total), :elapseds elapsed, eta :etas', {
-  current: config.firstHeight,
   total: config.lastHeight
 })
+bar.curr = config.firstHeight
 
 /* run process */
 handleBlocks(db, config.firstHeight, config.lastHeight, bar, function (err) {
