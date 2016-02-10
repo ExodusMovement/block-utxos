@@ -28,11 +28,11 @@ function getBlock (height, cb) {
 function updateUTXOs (db, height, block, cb) {
   var batch = db.batch()
   block.transactions.forEach(function (tx, txIndex) {
+    var txId = tx.getId()
     var inputs = txIndex > 0 ? tx.ins : tx.ins.slice(1)
     inputs.forEach(function (txInput) {
       batch.del(txInput.hash.reverse().toString('hex') + ':' + txInput.index)
     })
-    var txId = tx.getId()
     tx.outs.forEach(function (txOutput, outputIndex) {
       batch.put(txId + ':' + outputIndex, {
         value: txOutput.value,
