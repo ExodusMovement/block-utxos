@@ -1,10 +1,11 @@
 {
-	"host": "localhost",
-	"port": "18332"	,
-	"user": "bitcoinrpc",
-	"pass": "bitcoinrpc",
-	"firstHeight": 0,
-	"lastHeight": 300000,
-	"leveldb": "./utxos300k",
-	"jsondb": "./utxos300k.json"
+  "host": "localhost",
+  "port": "18332",
+  "user": "bitcoinrpc",
+  "pass": "bitcoinrpc",
+  "firstHeight": 0,
+  "lastHeight": 300000,
+  "leveldb": "./utxos300k",
+  "jsondb": "./utxos300k.json",
+  "csvdb": "./txouts300k.csv"
 }
